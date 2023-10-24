@@ -1,12 +1,11 @@
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyAs7UBIpMDBV1vZmeN0szF367ctLJMh7kM",
-  authDomain: "pokewallet-a03ef.firebaseapp.com",
-  databaseURL: "https://pokewallet-a03ef-default-rtdb.firebaseio.com",
-  projectId: "pokewallet-a03ef",
-  storageBucket: "pokewallet-a03ef.appspot.com",
-  messagingSenderId: "819835590475",
-  appId: "1:819835590475:web:89b975f9eb5b2fd0c87ace",
+  apiKey: "AIzaSyABTJUPhyN-f4arqjgK9tLUtRTmv-BLjyo",
+  authDomain: "chat-clone-gpt.firebaseapp.com",
+  projectId: "chat-clone-gpt",
+  storageBucket: "chat-clone-gpt.appspot.com",
+  messagingSenderId: "777240212975",
+  appId: "1:777240212975:web:128dfee625e88b19e2b21a"
 };
 
 export const app = initializeApp(firebaseConfig);

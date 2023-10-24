@@ -2,13 +2,14 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext/Index";
 import { Link } from "react-router-dom";
-import { Button, Input, Row, Col, Form, Checkbox } from "antd";
+import { Button, Input, Row, Col, Form, Checkbox, message } from "antd";
 import { UserOutlined, KeyOutlined } from "@ant-design/icons";
 import "./App.css";
 import { logIn, logOut } from "../../../services/firebase/authFirebase";
 
 const Index = () => {
   const { user, setStateUser, setLoading } = useAuth();
+  const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const logOutSesion = () => {
     logOut().then(() => {
@@ -28,6 +29,10 @@ const Index = () => {
   };
   const onSubmitFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
+    messageApi.open({
+      type: 'error',
+      content: 'Datos erróneos!',
+    });
   };
 
   if (user)
