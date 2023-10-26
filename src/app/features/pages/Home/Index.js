@@ -149,6 +149,7 @@ const Index = () => {
   return (
     <>
       <div className="h-screen  flex relative">
+
         <div className={`transition-all duration-200  dark bg-gray-900 gizmo:bg-black ${collapsed ? "w-80" : "w-0 hidden invisible border-0 "} `}>
           <ButtonHeader createNewConversation={createNewConversation} collapsed={collapsed} setCollapsed={setCollapsed} ></ButtonHeader>
 
@@ -170,8 +171,14 @@ const Index = () => {
                 </button >
               </div >
 
+
             </div >)
           })}
+
+          <div className="">
+
+            <button className="absolute bottom-0 text-white left-2 border rounded p-5 pt-2 pb-2" onClick={logOutSesion}>SAlir</button>
+          </div>
 
 
 
