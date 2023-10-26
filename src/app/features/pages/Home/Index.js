@@ -7,6 +7,7 @@ import { VerticalLeftOutlined } from "@ant-design/icons";
 import "./styles.css"
 import { db } from "../../../services/firebase/firebaseConfig"
 import { v4 as uuidv4 } from 'uuid';
+import { Spin } from 'antd';
 const ButtonHeader = ({ createNewConversation, collapsed, setCollapsed }) => {
   return (
     <div className="flex m-2">
@@ -47,7 +48,7 @@ const Index = () => {
   const [conversations, setConversations] = useState([])
   const [actual_conversation, setConversation] = useState([])
 
-  const [messages, setMessages] = useState([{ id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }, { id: 1212, question: "Hola mundo", response: "bien" }]);
+  const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
 
   const createNewConversation = () => {
@@ -89,20 +90,55 @@ const Index = () => {
     }
   }
 
-
+  const [loadingMessage, setLoadingMessage] = useState(false)
 
 
   const sendMessage = async () => {
 
+    setLoadingMessage(true)
+    const id = uuidv4()
+    let mensajes = messages
+
+    mensajes.push({
+      id: id,
+      question: newMessage,
+      response: ""
+    })
+    /*setMessages([...messages, {
+      id: id,
+      question: newMessage,
+      response: ""
+    }])*/
+
+
     await consultarMensajeGPT(newMessage)
       .then(respuesta => {
-        setMessages([...messages, {
-          id: uuidv4(),
-          question: newMessage,
-          response: respuesta
-        }])
+        console.log("mensajes", messages)
+
+        const Newmessages = mensajes.map(mens => {
+          if (mens.id == id)
+            return {
+              ...mens,
+              response: respuesta
+            }
+          return mens
+        })
+        console.log(Newmessages)
+        setMessages(Newmessages)
+        setLoadingMessage(false)
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        const Newmessages = mensajes.map(mens => {
+          if (mens.id == id)
+            return {
+              ...mens,
+              response: ` Error :c: ${error}`
+            }
+          return mens
+        })
+        setMessages(Newmessages)
+        setLoadingMessage(false)
+      });
 
     setNewMessage('')
 
@@ -158,6 +194,9 @@ const Index = () => {
                         {message.question}
                       </div>
                       <div className="bg-slate-300 p-8 pl-24">
+
+                        {loadingMessage && message.response == "" ? (<p className="text-sm"> < Spin /> Pensando </p>) : (<></>)}
+
                         {message.response}
                       </div>
                     </div>
