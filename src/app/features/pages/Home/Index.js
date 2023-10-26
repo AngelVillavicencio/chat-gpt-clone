@@ -23,79 +23,8 @@ const Index = () => {
         <Layout>
           <Sider>Sider </Sider>
           <Content style={{ overflowY: "scroll" }}>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h1>Welcome</h1>
-            <h2>{user.email}</h2>
+
+            <h2 className="text-4xl text-center">{user.email}</h2>
           </Content>
         </Layout>
       </Layout>
