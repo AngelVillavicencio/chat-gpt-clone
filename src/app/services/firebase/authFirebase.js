@@ -1,4 +1,5 @@
 import { app } from "./firebaseConfig";
+import { getFirestore } from "firebase/firestore";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -20,3 +21,7 @@ export const logOut = async () => await signOut(auth);
 export const CallStateAuth = (callback) => {
   return onAuthStateChanged(auth, callback);
 };
+
+export const db = getFirestore(app);
+
+
